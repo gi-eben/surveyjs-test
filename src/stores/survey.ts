@@ -18,7 +18,12 @@ export const useSurveyStore = defineStore('survey', {
     },
 
     getSurveyJSON() {
-      return JSON.parse(this.json)
+      try {
+        const json = JSON.parse(this.json)
+        return json
+      } catch {
+        return {}
+      }
     },
 
     saveSurveyResults(data: any) {
